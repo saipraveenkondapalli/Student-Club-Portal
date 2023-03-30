@@ -10,8 +10,9 @@ from pressclub.models import Users, Events
 @app.route('/')
 def index():
     admin = Users.objects(role=0).first()
+    coordinators = Users.objects(role=1)
 
-    return render_template('index.html', name = admin)
+    return render_template('index.html', name = admin.name, coordinator = coordinators)
 
 
 @app.route('/login', methods = ['GET', 'POST'])
@@ -24,11 +25,11 @@ def login():
             login_user(user)
             session['user_id'] = str(user.id)
 
-            return redirect(url_for('index'))
     if current_user.is_authenticated:
         return redirect('/dashboard')
 
     return render_template('login.html')
+
 
 
 @app.route('/logout')
@@ -44,7 +45,15 @@ def forget():
         email = request.form.get('username')
         user = Users.objects(email=email).first()
         if user:
-            send_mail(email)
+            s = Serializer(app.config['SECRET_KEY'])
+            token = s.dumps(email, salt='reset')
+            body = f"""
+            <h1>Reset Password</h1>
+            <p>Click on the link below to reset your password</p>
+            {url_for('reset', token=token, _external=True)}
+            """
+            send_mail(subject="Password Reset",body=body,link=url_for('reset', token=token, _external=True),email=email)
+
             return 'Mail sent'
         else:
             return f'User with email {email} does not exist'

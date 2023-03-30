@@ -20,8 +20,8 @@
             </div>
 
             <div class="col-md-12">
-                {% for coordinator, year in coordinators %}
-                <p style="font-size: 25px;"><strong><span style="text-decoration: underline;">Student Coordinator:</span></strong><br><strong>{{coordinator.name}}</strong>, {{coordinator.department}}, Year {{year}}</p>
+                {% for coordinator in coordinators %}
+                <p style="font-size: 25px;"><strong><span style="text-decoration: underline;">Student Coordinator:</span></strong><br><strong>{{coordinator.name}}</strong>, {{coordinator.department}}</p>
                 {% endfor %}
             </div>
         </div>

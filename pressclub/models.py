@@ -5,7 +5,7 @@ from datetime import datetime
 
 from flask_login import UserMixin
 
-from . import db, bcrypt, app, principals, session, Identity, RoleNeed, UserNeed
+from pressclub import db, bcrypt, app, principals, session,  RoleNeed, Identity, UserNeed
 
 
 @app.login_manager.user_loader
