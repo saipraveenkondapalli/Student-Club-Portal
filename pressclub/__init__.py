@@ -1,10 +1,10 @@
 import datetime
-from flask import Flask, render_template, request, redirect, url_for, session
-from flask_mongoengine import MongoEngine
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from flask_bcrypt import Bcrypt
-from flask_principal import Principal, Permission, RoleNeed, UserNeed, identity_loaded, Identity, AnonymousIdentity, identity_changed
 
+from flask import Flask, session
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
+from flask_mongoengine import MongoEngine
+from flask_principal import Principal, Permission, RoleNeed
 
 app = Flask(__name__)
 
