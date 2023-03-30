@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Badges{% endblock %}
+{% block content %}
+
+
+<div class="container" style="margin-top: 100px;">
+        <h1>Revoke Coordinator.</h1>
+    </div>
+    <div class="container" style="margin-top: 20px;">
+        <form method = "post">
+            {% for x in coordinators %}
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title" style="margin-bottom: 10px;">Student Name: {{x.name}}<br>Roll No: {{x.roll_no}}<br></h4>
+                    <h6 class="text-muted card-subtitle mb-2"></h6>
+                    <button class="btn btn-primary" type="submit" style="margin-top: 10px;margin-bottom: 1px;background: blue;border-radius: 5px;" name = "roll_no" value="{{x.roll_no}}">Revoke</button>
+                </div>
+            </div>
+            {% endfor %}
+        </form>
+    </div>
+
+{% endblock %}

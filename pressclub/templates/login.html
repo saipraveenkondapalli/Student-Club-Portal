@@ -1,0 +1,28 @@
+{%  extends "base_home.html" %}
+{% block content %}
+<div class="container" style="height: 600px;margin: 2px;">
+        <form method="post" class="login-one-form" style="color: var(--bs-body-color);background: #ffffff;">
+            <div class="col">
+                <div class="login-one-ico"><i class="fa fa-unlock-alt" id="lockico"></i></div>
+                <div class="form-group mb-3" style="height: 250px;">
+                    <div>
+                        <h3 id="heading">Log in</h3>
+                    </div>
+                    <input class="form-control" type="text" id="input-1" name="username" placeholder="Username">
+                    <input class="form-control" type="password" id="input-2" name="password" placeholder="Password" style="margin: 2px;margin-right: 0px;margin-bottom: 0px;margin-left: 0px;margin-top: 10px;">
+                    <button class="btn btn-primary" id="button" style="width: 250px;background: blue;border-radius: 5px;margin-top: 15px;" type="submit">Log in</button>
+                    <a href="/forget" style="color: green;"><em><span style="text-decoration: underline;">Forget Password</span></em></a>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class=flashes style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

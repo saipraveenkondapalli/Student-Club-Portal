@@ -1,0 +1,31 @@
+{% extends "coordinator/coordinator_base.html" %}
+{% block title %} Add Event {% endblock %}
+{% block content %}
+<div class="container" style="margin-top: 100px;">
+        <h1>Add Event</h1>
+    </div>
+    <div class="container">
+        <form method = "post">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Title</h4>
+                    <input class="form-control" type="text" placeholder="Title" style="width: 300px;margin-bottom: 20px;" required="" name="title">
+                    <input class="form-control" type="text" placeholder="Venue" style="width: 300px;margin-bottom: 10px;" required="" name="venue">
+                    <h5>Date</h5><input class="form-control" type="date" style="width: 250px;margin-bottom: 10px;" required="" name="date">
+                    <h5>Time</h5><input class="form-control" type="time" style="width: 250px;margin-bottom: 20px;" name="time" required="">
+                    <input class="form-control" type="number" placeholder="Meeting Number" name = "number" style="margin-bottom: 10px;">
+                    <button class="btn btn-primary" type="submit" style="background: blue;border-radius: 5px;">save</button>
+                    <p class="card-text">
+                        {%with messages = get_flashed_messages(with_categories = true) %}
+                            {%for category, message in messages %}
+                                <div class="alert alert-{{category}}", role="alert">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                        {% endwith %}
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

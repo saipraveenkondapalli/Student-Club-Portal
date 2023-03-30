@@ -1,0 +1,29 @@
+{% extends "base_home.html" %}
+{% block content %}
+<header class="masthead" style="background-image:url('/static/assets/img/home-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h1 style="font-size: 60px;">Pragati Press Club</h1><span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p style="font-size: 25px;background: rgba(255,255,255,0);"><strong><span style="text-decoration: underline;">Faculty in Charge:</span></strong><br><strong><em>{{name}}</em></strong>, Assistant Professor, Training &amp; Placement Cell, main block.</p>
+                <hr style="color: var(--bs-indigo);--bs-body-bg: var(--bs-red);--bs-body-color: var(--bs-indigo);background: black;width: 550px;height: 3px;">
+            </div>
+
+            <div class="col-md-12">
+                {% for coordinator, year in coordinators %}
+                <p style="font-size: 25px;"><strong><span style="text-decoration: underline;">Student Coordinator:</span></strong><br><strong>{{coordinator.name}}</strong>, {{coordinator.department}}, Year {{year}}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

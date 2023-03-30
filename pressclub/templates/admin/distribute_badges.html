@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Distribute Badges{% endblock %}
+
+{% block content %}
+
+
+<div class="container" style="height: 600px;margin: 2px;">
+        <form method="post" class="login-one-form" style="color: var(--bs-body-color);background: #ffffff;">
+            <div class="col">
+
+                <div class="form-group mb-3" style="height: 250px;">
+                    <div>
+                        <h3 id="heading">Assign Badge</h3>
+                    </div>
+                    <input class="form-control" type="text" id="input-1" name="username" placeholder="Roll No">
+                    <button class="btn btn-primary" id="button" style="width: 250px;background: blue;border-radius: 5px;margin-top: 15px;" type="submit">Assign</button>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class=flashes style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

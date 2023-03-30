@@ -1,0 +1,87 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Add New Member{% endblock %}
+{% block content %}
+
+<div class="container">
+        <div class="row d-flex d-xl-flex justify-content-center justify-content-xl-center" style="padding-bottom: 20px;padding-top: 30px;margin-top: 80px;">
+            <div class="col-sm-12 col-lg-10 col-xl-9 col-xxl-7 bg-white shadow-lg" style="border-radius: 5px;padding-bottom: 30px;">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h4 class="text-dark mb-4">Add New Team Member</h4>
+                    </div>
+                    <form  method="post" class="user" style="padding-bottom: 30px;">
+                        <div class="mb-3"><input class="form-control form-control-user" type="text" name ="roll_no" placeholder="Roll No" required=""></div>
+                        <div class="mb-3"><input readonly value="{{ email }}" class="form-control form-control-user" type="email" name ="email" id="email" placeholder="Email Address" required=""></div>
+                        <input class="form-control form-control-user" type="text"  name ="name" placeholder="Name" required="" style="margin: 2px;">
+                        <div class="row mb-3">
+                            <p id="emailErrorMsg" class="text-danger" style="display:none;">Paragraph</p>
+                            <p id="passwordErrorMsg" class="text-danger" style="display:none;">Paragraph</p>
+                        </div>
+                        <select class="form-select" name ="department" required="">
+                            <option value="0" selected="">Department</option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="MECH">Mech</option>
+                            <option value="CSE-AI">CSE- AI</option>
+                            <option value="CSE-AI&ML">CSE- AI &amp;ML</option>
+                            <option value="CSE-DS">CSE- DS</option>
+                            <option value="IT">IT</option>
+                        </select>
+                        <input class="form-control form-control-user" name = "batch" type="number" placeholder="Graduation Year" required="" style="margin-top: 15px;">
+                        <input class="form-control form-control-user" name ="phone" type="number" placeholder="Phone Number" required="" style="margin-top: 15px;">
+                        <input class="form-control form-control-user" id="pw" name ="password" placeholder="Password" type="password" required="" style="margin-top: 15px;">
+                        <input class="form-control form-control-user" id="cpw" name ="password" placeholder="Password" type="password" required="" style="margin-top: 15px;">
+                        <hr><button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit" style="background: blue;border-radius: 5px;">Register</button>
+
+
+                    </form>
+                    <div class="text-center">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                    <ul class=flashes style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const passwordInput = document.getElementById("pw");
+    const confirmPasswordInput = document.getElementById("cpw");
+    const submitButton = document.getElementById("submitBtn");
+    const message = document.createElement("p");
+
+    function validatePassword() {
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            submitButton.disabled = true;
+            message.textContent = "Passwords do not match!";
+            message.style.color = "red";
+        } else if (passwordInput.value.length < 8) {
+            submitButton.disabled = true;
+            message.textContent = "Password must be at least 8 characters long!";
+            message.style.color = "red";
+        } else {
+            submitButton.disabled = false;
+            message.textContent = "Passwords match and are at least 8 characters long!";
+            message.style.color = "green";
+        }
+    }
+
+    passwordInput.addEventListener("keyup", validatePassword);
+    confirmPasswordInput.addEventListener("keyup", validatePassword);
+
+    submitButton.parentNode.insertBefore(message, submitButton);
+</script>
+
+{% endblock %}

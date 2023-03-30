@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Change Name% endblock %}
+{% block content %}
+
+<form method = post>
+    <div class="container" style="margin-top: 100px ">
+        <div class="card">
+            <div class="card-body">
+                <h1>Change Name</h1>
+                <form method="post">
+                    <input class = "form-control" type="text" name="name" placeholder="{{ current_user.name }}">
+                    <button class="btn btn-primary" type="submit" style="margin-top :10px; border-radius: 5px;background: blue;font-size: 10px;">Change name</button>
+
+</form>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+{% endblock %}

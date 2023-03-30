@@ -1,0 +1,40 @@
+
+
+
+{% if event.report %}
+{% extends "admin/base.html" %}
+{% block title %}Badges{% endblock %}
+{% block content %}
+
+
+<div class="container" style="margin-top: 100px;">
+        <h1>Report for Meeting #{{event.meeting_id}}</h1>
+        <div class="row">
+            <div class="col">
+                <p>
+                <strong>Title: </strong>{{event.title}}<br>
+                <strong>Venue: </strong>{{event.venue}}<br>
+                <strong>Attendance: </strong>{{event.attendance }}<br>
+                <strong>Author: </strong>{{event.author}}<br>
+                </p>
+            </div>s
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <img class = "img-fluid" loading="auto" style="margin-top: 20px;margin-bottom: 20px;"src="/static/uploads/{{event.image}}">
+                    </div>
+                </div>
+                <h3>Report</h3>
+                <p style="margin-top: 50px;">{{ event.report }}</p>
+               <strong><hr style="background-color: #f60125; width:auto; height: 5px"></strong>
+            </div>
+        </div>
+    </div>
+
+s
+{% endblock %}
+{% else %}
+<script>alert("Report not Ready!"); window.location = '/reports';</script>
+{% endif %}
