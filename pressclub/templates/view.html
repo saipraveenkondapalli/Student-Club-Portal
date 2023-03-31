@@ -1,4 +1,4 @@
-{% if event.report %}
+{% if event.description %}
 
 
 {% extends "base_home.html" %}
@@ -19,10 +19,10 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <img class = "img-fluid" loading="auto" style="margin-top: 20px;"src="/static/uploads/{{event.image}}">
+                        <img class = "img-fluid" loading="auto" style="margin-top: 20px;"src="{{event.image}}">
                     </div>
                 </div>
-                <p style="margin-top: 50px;">{{ event.report }}</p>
+                <p style="margin-top: 50px;">{{ event.description }}</p>
                 <strong><hr style="background-color: #f60125; width:auto; height: 5px"></strong>
             </div>
         </div>

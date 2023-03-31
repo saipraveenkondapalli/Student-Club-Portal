@@ -1,7 +1,7 @@
 
 
 
-{% if event.report %}
+{% if event.description %}
 {% extends "admin/base.html" %}
 {% block title %}Badges{% endblock %}
 {% block content %}
@@ -14,8 +14,8 @@
                 <p>
                 <strong>Title: </strong>{{event.title}}<br>
                 <strong>Venue: </strong>{{event.venue}}<br>
-                <strong>Attendance: </strong>{{event.attendance }}<br>
-                <strong>Author: </strong>{{event.author}}<br>
+                <!--strong>Attendance: </strong>{{event.attendance }}<br-->
+                <strong>Author: </strong>{{event.author.name}}<br>
                 </p>
             </div>s
         </div>
@@ -23,11 +23,11 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <img class = "img-fluid" loading="auto" style="margin-top: 20px;margin-bottom: 20px;"src="/static/uploads/{{event.image}}">
+                        <img class = "img-fluid" loading="auto" style="margin-top: 20px;margin-bottom: 20px;"src="{{event.image}}">
                     </div>
                 </div>
                 <h3>Report</h3>
-                <p style="margin-top: 50px;">{{ event.report }}</p>
+                <p style="margin-top: 50px;">{{ event.description }}</p>
                <strong><hr style="background-color: #f60125; width:auto; height: 5px"></strong>
             </div>
         </div>

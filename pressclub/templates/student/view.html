@@ -10,8 +10,8 @@
                 <p>
                 <strong>Title: </strong>{{event.title}}<br>
                 <strong>Venue: </strong>{{event.venue}}<br>
-                <strong>Attendance:{{ event.attendance }} </strong><br>
-                <strong>Author: </strong>{{event.author}}
+                <!--strong>Attendance:{{ event.attendance }} </strong><br-->
+                <strong>Author: </strong>{{event.author.name}}
                 </p>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <img class = "img-fluid" loading="auto" style="margin-top: 20px;margin-bottom: 20px;"src="/static/uploads/{{event.image}}">
+                        <img class = "img-fluid" loading="auto" style="margin-top: 20px;margin-bottom: 20px;"src="{{ event.image }}">
                     </div>
                 </div>
                 <h3>Report:</h3>

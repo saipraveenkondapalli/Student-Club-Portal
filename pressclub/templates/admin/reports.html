@@ -27,7 +27,7 @@
                         <td>{{events[x].meeting_id}}</td>
                         <td style="width: 250px;">{{events[x].title}}</td>
                         <!--td style="width: 50px;">{{events[x].attendance}}</td-->
-                        <td><em>{{events[x].date.date()}}</em></td>
+                        <td><em>{{events[x].datetime.date()}}</em></td>
                         <td><em>{{events[x].author.name}}</em></td>
                         <td><a href="/view_report/{{events[x].meeting_id}}"> <button class="btn btn-primary" type="button" style="border-radius: 5px;background: blue;">view</button></a></td>
                     </tr>

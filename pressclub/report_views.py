@@ -27,9 +27,9 @@ def view_report(id):
         if current_user.is_authenticated:
             if current_user.role == 1:
                 return render_template('coordinator/view.html', event=event)
-            if current_user.type == 0:
+            if current_user.role == 0:
                 return render_template('admin/view.html', event=event)
-            elif current_user.type == 2:
+            elif current_user.role == 2:
                 return render_template('student/view.html', event=event)
         else:
             return render_template('view.html', event=event)

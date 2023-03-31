@@ -12,7 +12,7 @@ def index():
     admin = Users.objects(role=0).first()
     coordinators = Users.objects(role=1)
 
-    return render_template('index.html', name = admin.name, coordinator = coordinators)
+    return render_template('index.html', name = admin.name, coordinators = coordinators)
 
 
 @app.route('/login', methods = ['GET', 'POST'])

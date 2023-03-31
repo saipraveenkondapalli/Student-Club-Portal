@@ -23,10 +23,10 @@
                     </p>
                 <a class="card-link" href="/leave_request/{{events[0].meeting_id}}" style="color: BLUE;font-style: italic;text-decoration:  underline;"><em>Apply Leave</em></a>
                 {% if events[0].author %} {# checks if, author is assigned #}
-                    {% if current_user.username == (events[0].author).split(',')[1] %}
+                    {% if current_user.username == events[0].author.name %}
                     <a class="card-link" href="/write_report/{{events[0].meeting_id}}" style="color: BLUE;font-style: italic;text-decoration:  underline;"><em>Write Report</em></a>
                     {% endif %}
-                    {% if current_user.username == (events[0].author).split(';')[1] %}
+                    {% if current_user.username == events[0].author.name %}
                         {% if events[0].report %}
                     <a class="card-link" href="/write_report/{{events[0].meeting_id}}" style="color: BLUE;font-style: italic;text-decoration:  underline;"><em>Edit Report</em></a>
                         {% endif %}
@@ -48,15 +48,15 @@
                     <em>Venue: {{events[1].venue}}</em>
                     <br><em>Date: {{events[1].datetime.date()}}</em>
                     <br><em>Timings: {{events[1].time}}</em>
-                    <br><em>Attendance: {{ events[1].attendance }}</em>
+                    <!--br><em>Attendance: {{ events[1].attendance }}</em-->
                     <br><em>Report:&nbsp; &nbsp;</em>
                     <a href=/view_report/{{ events[1].meeting_id }} style="color: blue;"><em>click here</em></a>
                 {% if events[1].author %} {# checks if, author is assigned #}
-                    {% if current_user.username == (events[1].author).split(',')[1] %}
+                    {% if current_user.username == events[1].author.name %}
                     <a class="card-link" href="/write_report/{{events[1].meeting_id}}" style="color: BLUE;font-style: italic;text-decoration:  underline;padding-left: 10px"><em>Write Report</em></a>
                     {% endif %}
       {% if events[1].report %}
-                    {% if current_user.username == (events[1].author).split(';')[1] %}
+                    {% if current_user.username == events[1].author.name %}
                     <a class="card-link" href="/write_report/{{events[1].meeting_id}}" style="color: BLUE;font-style: italic;text-decoration:  underline;padding-left: 10px"><em>Edit Report</em></a>
                         {% endif %}
                     {% endif %}
