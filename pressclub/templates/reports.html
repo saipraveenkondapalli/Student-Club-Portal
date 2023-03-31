@@ -16,21 +16,29 @@
                         <th>Report</th>
                     </tr>
                 </thead>
-                <tbody>
-                {% for x  in range  (events|length) %}
-                    <tr>
-                        <td>{{events[x].meeting_id}}</td>
-                        <td style="width: 250px;">{{events[x].title}}</td>
-                        <!--td style="width: 50px;">{{events[x].attendance}}</td-->
-                        <td><em>{{events[x].datetime.date()}}</em></td>
-                        <td><em>{{events[x].author.name}}</em></td>
-                        <td><a href="/view_report/{{events[x].meeting_id}}"> <button class="btn btn-primary" type="button" style="border-radius: 5px;background: blue;">view</button></a></td>
-                    </tr>
-                {% endfor %}
+                <tbody id="data">
                 </tbody>
             </table>
         </div>
     </div>
+<script>
+data = {{ events | safe }};
+table = document.getElementById("data");
+// insert data into the table use columns meeting id, title, date, author, view button
+for (i = 0; i < data.length; i++) {
+    row = table.insertRow(i);
+    cell1 = row.insertCell(0);
+    cell2 = row.insertCell(1);
+    cell3 = row.insertCell(2);
+    cell4 = row.insertCell(3);
+    cell5 = row.insertCell(4);
+    cell1.innerHTML = data[i].meeting_id;
+    cell2.innerHTML = data[i].title;
+    cell3.innerHTML = data[i].meeting_date;
+    cell4.innerHTML = data[i].author;
+    cell5.innerHTML = `<a href="/view_report/${data[i].meeting_id}" class="btn btn-primary">View</a>`;
+}
 
+</script>
 
 {% endblock %}

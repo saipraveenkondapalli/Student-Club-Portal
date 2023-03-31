@@ -9,15 +9,26 @@ from pressclub.models import Events
 @app.route('/reports', methods=['GET', 'POST'])
 def reports():
     events = Events.objects.order_by('-meeting_id')
+    json_data = []
+    for event in events:
+        meeting_id = event.meeting_id
+        meeting_date = event.datetime.strftime('%d-%m-%Y')
+        print(meeting_date)
+        author = event.author.name
+        title = event.title
+        description = event.description
+        json_data.append({'meeting_id': meeting_id, 'meeting_date': meeting_date, 'author': author, 'title': title, 'description': description})
+
+
     if current_user.is_authenticated:
         if current_user.role == 1:
-            return render_template('coordinator/reports.html', events=events)
+            return render_template('coordinator/reports.html', events=json_data)
         elif current_user.role == 0:
-            return render_template('admin/reports.html', events=events)
+            return render_template('admin/reports.html', events=json_data)
         elif current_user.role == 2:
-            return render_template('student/reports.html', events=events)
+            return render_template('student/reports.html', events=json_data)
     else:
-        return render_template('reports.html', events=events)
+        return render_template('reports.html', events=json_data)
 
 
 @app.route('/view_report/<id>', methods=['GET', 'POST'])
