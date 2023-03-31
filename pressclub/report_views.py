@@ -13,7 +13,7 @@ def reports():
     for event in events:
         meeting_id = event.meeting_id
         meeting_date = event.datetime.strftime('%d-%m-%Y')
-        print(meeting_date)
+
         author = event.author.name
         title = event.title
         description = event.description
