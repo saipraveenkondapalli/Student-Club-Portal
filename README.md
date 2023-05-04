@@ -1,7 +1,10 @@
-#Student Club Portal
-**Warning**
+# Student Club Portal
 
->The code in this repository has been modified for demonstration purposes only and may differ from the actual codebase running on the college servers. The Student Club Portal is accessible only within the college network.
+
+**WARNING:**
+
+>The code in this repository is for demonstration purposes only and may differ from the actual codebase running in production. Please do not use this code in a production environment or as a reference for your own projects without properly reviewing and modifying it to fit your specific needs. Use of this code is at your own risk.
+
 
 ## About
 The Student Club Portal is a website designed to manage and automate various tasks for the Press Club at Pragati Engineering College in Surampalem, India. The website provides an efficient and organized platform for handling club-related activities such as report writing, attendance tracking, and more. The project has been successfully implemented and is currently up and running on the college servers.
