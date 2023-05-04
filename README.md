@@ -11,7 +11,7 @@ The Student Club Portal is a website designed to manage and automate various tas
 ![tech stack](https://saipraveen.software/assets/img/tech-stack-student-club.png)
 
 ## Features
-###Access Levels
+### Access Levels
 The website has three levels of access:
 
 * **Admin**:
