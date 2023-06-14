@@ -1,5 +1,5 @@
 # Student Club Portal
-Project Link : [https](https://github.com/saipraveenkondapalli/Student-Club-Portal)
+Project Link : [Github](https://github.com/saipraveenkondapalli/Student-Club-Portal)
 
 **WARNING:**
 
